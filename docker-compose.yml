@@ -1,0 +1,18 @@
+web:
+  build: .
+  volumes:
+   - .:/code
+  links:
+   - redis
+  expose:
+   - "80"
+  environment:
+   - VIRTUAL_HOST=teste.docker
+redis:
+  image: redis
+lb:
+  image: jwilder/nginx-proxy
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+  ports:
+    - 80:80
