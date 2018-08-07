@@ -1,7 +1,5 @@
 web:
-  build: .
-  volumes:
-   - .:/code
+  image: docker1 
   links:
    - redis
   expose:
@@ -9,7 +7,7 @@ web:
   environment:
    - VIRTUAL_HOST=teste.docker
 redis:
-  image: redis
+  image: redis:3.2-alpine
 lb:
   image: jwilder/nginx-proxy
   volumes:
