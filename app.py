@@ -6,7 +6,7 @@ host = socket.gethostname()
 
 @app.route('/')
 def hello():
-    return '\nHello World! My Host name is %s\n\n' % (host)
+    return '\nHello World! Im running in Container - name is %s\n\n' % (host)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int("8080"), debug=True)
