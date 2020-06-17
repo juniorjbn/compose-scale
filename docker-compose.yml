@@ -1,5 +1,7 @@
 web:
-  image: docker1 
+  build: .
+  volumes:
+   - .:/code
   links:
    - redis
   expose:
